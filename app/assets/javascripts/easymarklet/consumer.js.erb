@@ -26,10 +26,7 @@
     var port = '<%= Rails.application.config.action_controller.default_url_options[:port] %>';
     port = port === '' ? '' : ':' + port;
     // full_host = http + "://" + "boiling-harbor-6695.herokuapp.com" + ""
-    console.log("protocol is :" + protocol)
-    console.log("host is :" + host)
-    console.log("port is :" + port)
-    var full_host = protocol  + '://' + host + port;
+    var full_host = host + port;
 
 // full_host + src
 // src is bookmarklet.consumer.css[i] grabs a bunch of them
