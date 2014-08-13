@@ -22,10 +22,18 @@
       protocol = bookmarklet.protocol;
     }
     var host = '<%= Rails.application.config.action_controller.default_url_options[:host] %>';
+    // host = "boiling-harbor-6695.herokuapp.com"
     var port = '<%= Rails.application.config.action_controller.default_url_options[:port] %>';
     port = port === '' ? '' : ':' + port;
+    // full_host = http + "://" + "boiling-harbor-6695.herokuapp.com" + ""
+    console.log("protocol is :" + protocol)
+    console.log("host is :" + host)
+    console.log("port is :" + port)
     var full_host = protocol  + '://' + host + port;
 
+// full_host + src
+// src is bookmarklet.consumer.css[i] grabs a bunch of them
+// the problem we had was http://http//heroku
     // Once easyXDM is available this will create an iframe and set up the RPC channel
     function scriptOnLoad(){
         
@@ -136,6 +144,8 @@
       for(var i = 0; i<bookmarklet.consumer.css.length; i++){
         var src = bookmarklet.consumer.css[i]
         var css = document.createElement('LINK');
+        console.log("src is :" + src)
+        console.log("full host is:" + full_host)
         css.href = full_host + src;
         css.type = 'text/css';
         css.media = 'screen';
