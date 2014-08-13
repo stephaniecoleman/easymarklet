@@ -2,7 +2,7 @@ module Easymarklet::LinkHelper
 	
 	def easymarklet_js(manifest = 'bookmarklet.js')
   	if Rails.env == "production"
-	    "javascript:(function(){var script=document.createElement('SCRIPT');script.src='boiling-harbor-6695.herokuapp.com/#{javascript_path(manifest)}';document.body.appendChild(script);})()"
+	    "javascript:(function(){var script=document.createElement('SCRIPT');script.src='http://boiling-harbor-6695.herokuapp.com/#{javascript_path(manifest)}';document.body.appendChild(script);})()"
 	 	else
 	    "javascript:(function(){var script=document.createElement('SCRIPT');script.src='http://localhost:3000/assets/bookmarklet.js';document.body.appendChild(script);})()"
  		end
